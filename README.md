@@ -38,22 +38,20 @@ Browser ─► public Sepolia RPC (eth_sendRawTransaction)
 
 ```bash
 bun install
-cp .env.example .env   # fill in OP_CLIENT_ID / OP_CLIENT_SECRET
+cp .env.example .env   # fill in ORBITPORT_CLIENT_ID / ORBITPORT_CLIENT_SECRET
 ```
 
 You'll need an Orbitport **Client ID** and **Client Secret**. Sign in at
 <https://accounts.spacecomputer.io/> to get them.
 
-### Required env (server-only, never expose as `NEXT_PUBLIC_*`)
+### Env (server-only, never expose as `NEXT_PUBLIC_*`)
 
-| Var | Default | Purpose |
-| --- | --- | --- |
-| `OP_BASE_URL` | `https://op.spacecomputer.io` | Gateway HTTP base URL |
-| `OP_AUTH_DOMAIN` | `auth.spacecomputer.io` | Auth0 tenant |
-| `OP_AUTH_AUDIENCE` | `https://op.spacecomputer.io/api` | Auth0 audience claim |
-| `OP_CLIENT_ID` | — | OAuth client ID (required) |
-| `OP_CLIENT_SECRET` | — | OAuth client secret (required) |
-| `OP_DEBUG` | — | Optional. Any non-empty value enables SDK debug logging |
+| Var | Purpose |
+| --- | --- |
+| `ORBITPORT_CLIENT_ID` | OAuth client ID (required) |
+| `ORBITPORT_CLIENT_SECRET` | OAuth client secret (required) |
+
+The SDK targets `https://op.spacecomputer.io` (auth at `auth.spacecomputer.io`) by default. To point at a different gateway, edit `src/lib/server/orbitport.ts`.
 
 ## Run
 

@@ -13,8 +13,6 @@ export async function POST() {
       keySpec: "ECC_SECG_P256K1",
       keyUsage: "SIGN_VERIFY",
       scheme: "ETHEREUM",
-      description: "",
-      tags: [],
     });
     const { KeyId, Address } = created.data.KeyMetadata;
     return NextResponse.json({ keyId: KeyId, address: Address });
